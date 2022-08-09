@@ -19,11 +19,14 @@ def get_phone_number():
         try:
             possiblephonenum = phonenumbers.parse(input, None)
             print(phonenumbers.is_valid_number(possiblephonenum))
+            # if phone number is not valid return invalid html page
             if phonenumbers.is_valid_number(possiblephonenum) == False:
                 return render_template("invalidnumber.html")
+        # if phonenumber is valid function is not able to complete with user input, return invalid html page    
         except:
             return render_template("invalidnumber.html")
         
+        # after user input makes it through phone number checks, create number string variable
         number = input
         ch_number = phonenumbers.parse(number, "CH")
         country = geocoder.country_name_for_number(ch_number, "en")
