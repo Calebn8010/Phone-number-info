@@ -84,8 +84,7 @@ def get_phone_number():
             if len(timezones) > 5:
                 timezones = "Unknown"
             if len(timezones) == 1:
-                print(timezones[0])
-            print(timezones)
+                timezones = timezones[0]
             # update global dictionary
             currphoneinfo["timezone"] = timezones
             return render_template("indexfilled.html", country=country, state=state, carrier=carrierinfo, timezones=timezones)
