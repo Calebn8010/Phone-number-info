@@ -25,6 +25,7 @@ platformdirs==2.5.2
 psycopg2-binary==2.9.3
 ptyprocess==0.7.0
 pycparser==2.21
+python-dotenv==0.20.0
 PyYAML==5.4.1
 requests==2.27.1
 six==1.16.0
