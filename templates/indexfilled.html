@@ -24,7 +24,7 @@
     <p class="lead">Enter any International Phone number with areacode and get back public available information!</p>
     <p class="lead">
       <form action="/" method ="post">
-        <input type="text" name="phonenumber">
+        <input type="text" placeholder="Phone Number" name="phonenumber">
         <div class="p-2">
           <button type="submit" class="btn btn-primary mb-3">Submit</button>
         </div>
@@ -39,6 +39,14 @@
             <p class="card-text">Timezone: {{timezones}}</p>
           </div>
         </div>
+        <p>Send copy of information to personal email</p>
+        <form action="/" method ="post">
+          <input type="text" placeholder="Email" name="email">
+          <div class="p-2">
+            <button type="submit" class="btn btn-primary mb-3">Send</button>
+          </div>
+          
+        </form>
     </p>
   </main>
 
