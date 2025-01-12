@@ -24,7 +24,6 @@ currphoneinfo = {"number":"Unknown","country":"Unknown", "state":"Unknown", "car
 
 @app.route('/', methods=["GET", "POST"])
 def get_phone_number():
-    print(os.environ.get('password'))
     if request.method == "POST":
 
         # check if user submitted phone number
@@ -91,6 +90,7 @@ def get_phone_number():
 
         # else user submitted email form
         else:
+            print(os.environ)
             print(request.form.get("email"))
             # get personal email address from user form input
             sendto = request.form.get("email")
@@ -109,7 +109,8 @@ def get_phone_number():
                 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
                     smtp.login(os.environ.get('gmail'), os.environ.get('password')) 
                     smtp.send_message(msg)
-            except:
+            except (Exception) as error:
+                print("Error while sending email:", error)
                 return render_template("invalidemail.html", country=currphoneinfo["country"], state=currphoneinfo["state"], carrier=currphoneinfo["carrier"], timezones=currphoneinfo["timezone"])
                 
 
